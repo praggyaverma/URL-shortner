@@ -31,7 +31,14 @@ def run():
         Enter your URL to shorten it!
     """
     )
-
+    query = st.text_input()
+    if not query:
+        st.write("Please enter some text.")
+        return
+    
+if st.button("Shorten"):
+    short_url = shortuuid.uuid()[:8]
+    st.success(f"Shortened URL: https://url-shortner-mlh.streamlit.app/{short_url}")
 
 if __name__ == "__main__":
     run()
